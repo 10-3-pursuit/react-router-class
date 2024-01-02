@@ -23,14 +23,26 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/newsletter" element={<Newsletter />} />
-            <Route
-              path="/lamps"
-              element={<ProductList products={lamps} type={"Lamps"} />}
-            />
-            <Route
-              path="/candles"
-              element={<ProductList products={candles} type={"Candles"} />}
-            />
+            <Route path="/lamps">
+              <Route
+                index
+                element={<ProductList products={lamps} type={"Lamps"} />}
+              />
+              <Route
+                path=":id"
+                element={<Product products={lamps} type={"Lamps"} />}
+              />
+            </Route>
+            <Route path="/candles">
+              <Route
+                index
+                element={<ProductList products={candles} type={"Candles"} />}
+              />
+              <Route
+                path=":id"
+                element={<Product products={candles} type={"Candles"} />}
+              />
+            </Route>
           </Routes>
         </main>
       </div>
