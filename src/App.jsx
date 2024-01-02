@@ -1,3 +1,5 @@
+import { Route, Routes } from "react-router-dom";
+
 import Footer from "./components/common/footer.jsx";
 import Header from "./components/common/header.jsx";
 import Nav from "./components/common/nav.jsx";
@@ -17,11 +19,19 @@ function App() {
       <div className="wrapper">
         <Nav />
         <main>
-          <Home />
-          <About />
-          <Newsletter />
-          <ProductList products={lamps} type={"Lamps"} />
-          <ProductList products={candles} type={"Candles"} />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/newsletter" element={<Newsletter />} />
+            <Route
+              path="/lamps"
+              element={<ProductList products={lamps} type={"Lamps"} />}
+            />
+            <Route
+              path="/candles"
+              element={<ProductList products={candles} type={"Candles"} />}
+            />
+          </Routes>
         </main>
       </div>
       <Footer />
